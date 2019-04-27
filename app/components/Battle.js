@@ -1,16 +1,6 @@
 const React = require('react');
 const Link = require('react-router-dom').Link;
-
-
-function PlayerPreview(props) {
-    return (
-        <div>
-            <img className="avatar" src={props.avatar} alt={'image for player' + props.username}/>
-            <p>{props.username}</p>
-            <button className="button" onClick={props.onReset.bind(null, props.id)}>Reset</button>
-        </div>
-    )
-}
+const PlayerPreview = require('./PlayerPreview');
 
 class PlayerInput extends React.Component {
     constructor(props) {
@@ -103,9 +93,16 @@ class Battle extends React.Component {
             <div>
                 <div className="row">
                     {!playerOneName && <PlayerInput id="playerOne" label="Player One " onSubmit={this.handleSubmit}/>}
-                    {playerOneImage && <PlayerPreview id="playerOne" avatar={playerOneImage} username={playerOneName} onReset={this.handleOnReset} />}
+                    {
+                        playerOneImage && 
+                        <PlayerPreview avatar={playerOneImage} username={playerOneName}>
+                            <button className="button" onClick={this.handleOnReset.bind(null, "playerOne")}>Reset</button>
+                        </PlayerPreview>}
                     {!playerTwoName && <PlayerInput id="playerTwo" label="Player Two" onSubmit={this.handleSubmit}/>}
-                    {playerTwoImage && <PlayerPreview id="playerTwo" avatar={playerTwoImage} username={playerTwoName} onReset={this.handleOnReset} />}
+                    {playerTwoImage && 
+                    <PlayerPreview avatar={playerTwoImage} username={playerTwoName} >
+                            <button className="button" onClick={this.handleOnReset.bind(null, "playerTwo")}>Reset</button>
+                    </PlayerPreview>}
                 </div>
                 <div>
                     {playerOneImage && playerTwoImage && 
