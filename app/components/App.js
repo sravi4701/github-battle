@@ -5,6 +5,7 @@ const {BrowserRouter, Route, Switch} = require('react-router-dom');
 const Home = require('./Home');
 const Battle = require('./Battle');
 const NavBar = require('./Navbar');
+const Results = require('./Results');
 
 // component inputs
 // state
@@ -19,7 +20,8 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component={Home} />
                         <Route path="/popular" component={Popular}/>
-                        <Route path="/battle" component={Battle} />
+                        <Route exact path="/battle" component={Battle} />
+                        <Route path="/battle/results" component={Results} />
                         <Route render={() => <p>Not Found</p>} />
                     </Switch>
                 </div>
