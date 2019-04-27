@@ -6,7 +6,11 @@ module.exports = {
     entry: './app/index.js', // entry point of application
     output: { // where to bundle the files
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index_bundle.js' // final filename inside dist folder
+        filename: 'index_bundle.js', // final filename inside dist folder
+        publicPath: '/'
+    },
+    devServer: {
+        historyApiFallback: true
     },
     module: {
         rules: [ // how to bundle the files, i.e. rules
