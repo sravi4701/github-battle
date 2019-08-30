@@ -1,2 +1,2 @@
 # github-battle
-A React Learning Project Build Under the course of React from https://twitter.com/tylermcginnis
+A React Learning Project Build Under the course from https://twitter.com/tylermcginnis
